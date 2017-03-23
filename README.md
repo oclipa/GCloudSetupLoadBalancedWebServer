@@ -1,6 +1,9 @@
 ## Instructions for setting up a collection of load balanced web server instances, with a Cloud SQL backend 
 *Steve Hall, https://github.com/oclipa*
 
+There instructions are derived from the Google Code Labs listed [here](https://github.com/oclipa/GCloudSetupLoadBalancedWebServer/blob/master/GoogleCodeLabs.md).
+
+
 ## In the Cloud Console, create instances of a compute engine and an Cloud SQL database server:
 1. Create static IP address for main instance:
    * `gcloud compute addresses create [address name] --region [instance region]`
@@ -122,3 +125,8 @@
    * `sudo apt-get install -y -qq apache2-utils`
 1. Perform a benchmark test:
    * `ab -n 5000 http://$LB_IP_ADDRESS/`
+
+
+## For Further Investigation:
+* For HTTPS load balancing
+   * `gcloud compute ssl-certificates`
