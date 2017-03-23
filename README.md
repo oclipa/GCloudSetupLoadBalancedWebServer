@@ -14,19 +14,8 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Create bucket in cloud data storage
    * `gsutil mb -c DRA -l [instance region] gs://[bucket name]`
 1. Create startup/shutdown scripts:
-   * See for example: 
-      * https://github.com/GoogleCloudPlatformTraining/cpo200-lb-startup-script
-   * And: 
-      * https://github.com/GoogleCloudPlatformTraining/cpo200-startup-scripts
-   * For Stackdriver Logging:
-      * https://codelabs.developers.google.com/codelabs/cpo200-startup-scripts/#6
-      * https://storage.googleapis.com/signals-agents/logging/google-fluentd-install.sh
-   * For authorizing access to Cloud SQL Client API:
-      * https://codelabs.developers.google.com/codelabs/cpo200-autoscaler/#2]
-      * https://github.com/GoogleCloudPlatformTraining//cpo200-Google-Compute-Engine-Autoscaler
-   * Example scripts for using Python Google API Client Library can be found here: 
-      * https://github.com/GoogleCloudPlatformTraining/cpo200-Google-API-Client-Library
-      * https://github.com/GoogleCloudPlatformTraining/cpo200-Google-Cloud-SQL-Admin-API
+   * [startup.sh](https://github.com/oclipa/GCloudSetupLoadBalancedWebServer/blob/master/scripts/startup.sh)
+   * [shutdown.sh](https://github.com/oclipa/GCloudSetupLoadBalancedWebServer/blob/master/scripts/shutdown.sh)
 1. Copy files (e.g. startup scripts) to cloud data storage: 
    * `gsutil cp [local file to copy] [gs://bucket name/]`
 1. Create Cloud SQL instance with static IP address:
@@ -55,7 +44,7 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Install Python Google API Client Library: 
    * `sudo pip install --upgrade google-api-python-client`
 1. Install Docker:
-   * See the following for example docker installation script: https://github.com/GoogleCloudPlatformTraining/cpo200-guestbook-vm.git
+   * [install-docker.sh](https://github.com/oclipa/GCloudSetupLoadBalancedWebServer/blob/master/scripts/install-docker.sh)
 1. Connect to SQL instance:
    * `mysql -u root -p -h $SQL_IP_ADDRESS`
 1. Create a database: 
@@ -66,15 +55,13 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Quit MySQL client: 
    * `quit;`
 1. Create docker image for application:
-   * Example of docker config: https://github.com/GoogleCloudPlatformTraining/cpo200-load-balancing
-   * Clone docker config into local [docker folder]
+   * [docker config](https://github.com/oclipa/GCloudSetupLoadBalancedWebServer/tree/master/scripts/webserver)
 1. Build docker image from config: 
    * `sudo docker build -t [docket tag] [docker folder]`
 1. Run docker container (to stop docker container: CTRL-C): 
    * `sudo docker run -p 80:80 -e CLOUDSQL_IP=$SQL_IP_ADDRESS -e CLOUDSQL_PWD=[sql password] [docker tag]`
 1. Create docker to enable Cloud SQL Client API access:
-   * Example of docker config: https://github.com/GoogleCloudPlatformTraining/cpo200-Google-Cloud-SQL-Admin-API
-   * Clone docket config into local [docker folder 2]
+   * [docker config](https://github.com/oclipa/GCloudSetupLoadBalancedWebServer/tree/master/scripts/sqladmin)
 1. Create docker image from config: 
    * `sudo docker build -t [docket tag 2] [docker folder 2]`
 1. Shutdown instance: 
@@ -118,7 +105,7 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Create a forwarding rile that assigns a global IP address tp the HTTP load balancer
    * `gcloud compute forwarding-rules create [forwarding rule name] --global --ports 80 --target-http-proxy [target proxy name]`
 1. Check the health of the backend-services (may take several minutes to initialize) 
-   * gcloud compute backend-services get-health guestbook-backend-service --global
+   * `gcloud compute backend-services get-health guestbook-backend-service --global`
 1. Get the load balancer external IP address:
    * `LB_IP_ADDRESS=$(gcloud compute forwarding-rules describe [forwarding rule name] --global | grep IPAddress | awk '{print $2}')`
 1. To perform load balancing tests, install apache2-utils *in the Cloud Console* (not persisted after log-off)
@@ -130,3 +117,6 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 ## For Further Investigation:
 * For HTTPS load balancing
    * `gcloud compute ssl-certificates`
+* For Stackdriver Logging:
+   * https://codelabs.developers.google.com/codelabs/cpo200-startup-scripts/#6
+   * https://storage.googleapis.com/signals-agents/logging/google-fluentd-install.sh
