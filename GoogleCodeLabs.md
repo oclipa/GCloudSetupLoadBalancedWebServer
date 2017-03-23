@@ -1,25 +1,25 @@
-https://codelabs.developers.google.com/codelabs/cp100-free-trial/#0
-https://codelabs.developers.google.com/codelabs/cp100-cloud-launcher/#0
-https://codelabs.developers.google.com/codelabs/cp100-app-engine/#0
-https://codelabs.developers.google.com/codelabs/cp100-cloud-storage/#0
-https://codelabs.developers.google.com/codelabs/cp100-container-engine/#0
-https://codelabs.developers.google.com/codelabs/cp100-compute-engine/#0
-https://codelabs.developers.google.com/codelabs/cp100-big-query/#0
-https://codelabs.developers.google.com/codelabs/cpo200-federated-queries/#0
-https://codelabs.developers.google.com/codelabs/cpo200-projects/#0
-https://codelabs.developers.google.com/codelabs/cpo200-networks/#0
-https://codelabs.developers.google.com/codelabs/cpo200-disks/#0
-https://codelabs.developers.google.com/codelabs/cpo200-authorization/#0
-https://codelabs.developers.google.com/codelabs/cpo200-snapshots/#0
-https://codelabs.developers.google.com/codelabs/cpo200-backups-pt1/#0
-https://codelabs.developers.google.com/codelabs/cpo200-backups-pt2/#0
-https://codelabs.developers.google.com/codelabs/cpo200-container-registry/#0
-https://codelabs.developers.google.com/codelabs/cpo200-instance-groups/#0
-https://codelabs.developers.google.com/codelabs/cpo200-sql/#0
-https://codelabs.developers.google.com/codelabs/cpo200-metadata/#0
-https://codelabs.developers.google.com/codelabs/cpo200-startup-scripts/#0
-https://codelabs.developers.google.com/codelabs/cpo200-client-library/#0
-https://codelabs.developers.google.com/codelabs/cpo200-autoscaler/#0
-https://codelabs.developers.google.com/codelabs/cpo200-load-balancing/#0
-https://codelabs.developers.google.com/codelabs/cpo200-deployment-manager/#0
-https://codelabs.developers.google.com/codelabs/cpo200-delete-resources/#0
+1. https://codelabs.developers.google.com/codelabs/cp100-free-trial/#0
+1. https://codelabs.developers.google.com/codelabs/cp100-cloud-launcher/#0
+1. https://codelabs.developers.google.com/codelabs/cp100-app-engine/#0
+1. https://codelabs.developers.google.com/codelabs/cp100-cloud-storage/#0
+1. https://codelabs.developers.google.com/codelabs/cp100-container-engine/#0
+1. https://codelabs.developers.google.com/codelabs/cp100-compute-engine/#0
+1. https://codelabs.developers.google.com/codelabs/cp100-big-query/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-federated-queries/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-projects/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-networks/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-disks/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-authorization/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-snapshots/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-backups-pt1/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-backups-pt2/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-container-registry/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-instance-groups/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-sql/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-metadata/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-startup-scripts/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-client-library/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-autoscaler/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-load-balancing/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-deployment-manager/#0
+1. https://codelabs.developers.google.com/codelabs/cpo200-delete-resources/#0
