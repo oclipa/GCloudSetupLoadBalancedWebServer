@@ -14,26 +14,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+SQL_DOCKER_TAG="get from setup-instances.sh"
+
 # retrieve the IP address of your Cloud SQL instance
 SQL_IP=$(curl \
 "http://metadata/computeMetadata/v1/instance/\
 attributes/sql-ip" \
 -H "Metadata-Flavor: Google")
+
 # retrieve the password of your Cloud SQL instance
 SQL_PW=$(curl \
 "http://metadata/computeMetadata/v1/instance/\
 attributes/sql-pw" \
 -H "Metadata-Flavor: Google")
+
 # retrieve the host zone of this Compute Engine instance
 MY_ZONE=$(curl \
 "http://metadata/computeMetadata/v1/instance/\
 zone" \
 -H "Metadata-Flavor: Google" | awk -F/ '{print $4}')
 
-docker run cpo200/sqladmin python app/sqladmin.py
+docker run $SQL_DOCKER_TAG python app/sqladmin.py
 
 docker run \
 -e CLOUDSQL_IP=$SQL_IP \
 -e CLOUDSQL_PWD=$SQL_PW \
 -e HOST_ZONE=$MY_ZONE \
--p 80:80 cpo200/guestbook
+-p 80:80 $SQL_DOCKER_TAG
