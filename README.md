@@ -57,13 +57,13 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Create docker image for application:
    * [docker config](https://github.com/oclipa/GCloudSetupLoadBalancedWebServer/tree/master/scripts/webserver)
 1. Build docker image from config: 
-   * `sudo docker build -t [docket tag] [docker folder]`
+   * `sudo docker build -t [docker tag] [docker folder]`
 1. Run docker container (to stop docker container: CTRL-C): 
    * `sudo docker run -p 80:80 -e CLOUDSQL_IP=$SQL_IP_ADDRESS -e CLOUDSQL_PWD=[sql password] [docker tag]`
 1. Create docker to enable Cloud SQL Client API access:
    * [docker config](https://github.com/oclipa/GCloudSetupLoadBalancedWebServer/tree/master/scripts/sqladmin)
 1. Create docker image from config: 
-   * `sudo docker build -t [docket tag 2] [docker folder 2]`
+   * `sudo docker build -t [docker tag 2] [docker folder 2]`
 1. Shutdown instance: 
    * `sudo shutdown -h now`
 
