@@ -1,6 +1,6 @@
 # This is currently a WORK-IN-PROGRESS so tread carefully...
 
-## Instructions for setting up a collection of load balanced web server instances, with a Cloud SQL backend 
+## Instructions for setting up a collection of load balanced web server instances in Google Cloud, with a Cloud SQL backend 
 *Steve Hall, https://github.com/oclipa*
 
 There instructions are derived from the Google Code Labs listed [here](https://github.com/oclipa/GCloudSetupLoadBalancedWebServer/blob/master/GoogleCodeLabs.md).
