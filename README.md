@@ -26,7 +26,7 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Set backup schedule for SQL instance: 
    * `gcloud sql instances patch [sql instance name] --backup-start-time [start time in 24H format in UTC: hh:mm)`
 1. Get the IP address of the SQL instance: 
-   * `SQL_IP_ADDRESS=$(gcloud sql instances describe guestbook-sql --format text | grep ipAddress | awk '{print $2}')`
+   * `SQL_IP_ADDRESS=$(gcloud sql instances describe [sql instance name] --format text | grep ipAddress | awk '{print $2}')`
 1. Register main instance IP address with SQL instance:
    * `gcloud sql instances patch [sql instance name] --authorized-networks $INSTANCE_IP_ADDRESS`
 1. Create new instance: 
@@ -102,7 +102,7 @@ There instructions are derived from the Google Code Labs listed [here](https://g
    * `gcloud compute url-maps create [url map name] --default-service [backend service name]`
 1. Create HTTP proxy that routes packets from the forwarding rule to the URL map
    * `gcloud compute target-http-proxies create [target proxy name] --url-map [url map name]`
-1. Create a forwarding rile that assigns a global IP address tp the HTTP load balancer
+1. Create a forwarding rule that assigns a global IP address tp the HTTP load balancer
    * `gcloud compute forwarding-rules create [forwarding rule name] --global --ports 80 --target-http-proxy [target proxy name]`
 1. Check the health of the backend-services (may take several minutes to initialize) 
    * `gcloud compute backend-services get-health guestbook-backend-service --global`
