@@ -75,15 +75,15 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Ensure Cloud SQL is not authorized for any other networks: 
    * `gcloud sql instances patch [sql instance name] --clear-authorized-networks`
 1. Create instance-template: 
-   * `gcloud compute instance-templates create [instance-template-name] --image [image name] --tags [firewall rule tag] --scopes=sql-admin,storage-ro,logging-write --metadata startup-script-url=[path to script in bucket],sql-name=[sql instance name],sql-ip=$SQL_IP_ADDRESS,sql-pw=[sql password]`
+   * `gcloud compute instance-templates create [instance template name] --image [image name] --tags [firewall rule tag] --scopes=sql-admin,storage-ro,logging-write --metadata startup-script-url=[path to script in bucket],sql-name=[sql instance name],sql-ip=$SQL_IP_ADDRESS,sql-pw=[sql password]`
 1. Create managed instance group based on template: 
-   * `gcloud compute instance-groups managed create [instance group name 1] --base-instance-name [base-name-for-instance] --size [initial size, e.g. 1] --template [instance-template-name] --zone [primary zone]`
+   * `gcloud compute instance-groups managed create [instance group name 1] --base-instance-name [base-name-for-instance] --size [initial size, e.g. 1] --template [instance template name] --zone [primary zone]`
 1. [optional] Set autoscaling for instance group: 
    * `gcloud compute instance-groups managed set-autoscaling [instance group name 1] --max-num-replicas [max instances] --min-num-replicas [min instances] --target-cpu-utilization [0.0-1.0] --cool-down-period [seconds] --zone [primary zone]`
 1. Specify the service endpoint for the instance group: 
    * `gcloud compute instance-groups managed set-named-ports [instance group name 1] --named-ports [named ports, e.g. http:80] --zone [primary zone]`
 1. Create a second managed instance group based on the same template
-   * `gcloud compute instance-groups managed create [instance group name 2] --base-instance-name [base-name-for=instance] --size [initial size, e.g. 1] --template [instance-template-name] --zone [secondary zone]`
+   * `gcloud compute instance-groups managed create [instance group name 2] --base-instance-name [base name for instance] --size [initial size, e.g. 1] --template [instance template name] --zone [secondary zone]`
 1. Specify the service endpoint for the second instance group: 
    * `gcloud compute instance-groups managed set-named-ports [instance group name 2] --named-ports [named ports, e.g. http:80] --zone [secondary zone]`
 1. Create auto-scaler instance to handle load balancing for first instance group:
@@ -105,7 +105,7 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Create a forwarding rule that assigns a global IP address tp the HTTP load balancer
    * `gcloud compute forwarding-rules create [forwarding rule name] --global --ports 80 --target-http-proxy [target proxy name]`
 1. Check the health of the backend-services (may take several minutes to initialize) 
-   * `gcloud compute backend-services get-health guestbook-backend-service --global`
+   * `gcloud compute backend-services get-health [backend service name] --global`
 1. Get the load balancer external IP address:
    * `LB_IP_ADDRESS=$(gcloud compute forwarding-rules describe [forwarding rule name] --global | grep IPAddress | awk '{print $2}')`
 1. To perform load balancing tests, install apache2-utils *in the Cloud Console* (not persisted after log-off)
