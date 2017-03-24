@@ -24,13 +24,15 @@ from flask import Response
 
 app = Flask(__name__)
 
+DATABASE_NAME="get from setup-image.sh"
+
 IP_ADDRESS = os.environ['CLOUDSQL_IP']
 PASSWORD = os.environ['CLOUDSQL_PWD']
 ZONE = os.environ['HOST_ZONE']
 
 @app.route('/', methods=['GET', 'POST'])
 def main_page():
-    db = MySQLdb.connect(host=IP_ADDRESS, port=3306, db='guestbook', user='root', passwd=PASSWORD)
+    db = MySQLdb.connect(host=IP_ADDRESS, port=3306, db=DATABASE_NAME, user='root', passwd=PASSWORD)
     cursor = db.cursor()
     if request.method == 'POST':
         cursor.execute('INSERT INTO entries (entry) VALUES (%s)', (request.form['entry'],))
@@ -45,7 +47,7 @@ def main_page():
 
 @app.route('/clear', methods=['POST'])
 def clear_entries():
-    db = MySQLdb.connect(host=IP_ADDRESS, port=3306, db='guestbook', user='root', passwd=PASSWORD)
+    db = MySQLdb.connect(host=IP_ADDRESS, port=3306, db=DATABASE_NAME, user='root', passwd=PASSWORD)
     cursor = db.cursor()
     cursor.execute('DELETE from entries')
     db.commit()
