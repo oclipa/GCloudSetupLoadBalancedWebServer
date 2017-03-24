@@ -14,5 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+BUCKET_NAME="get from setup-instances.sh"
 
-gsutil cp /var/log/daemon.log gs://<startup-scripts-bucket>
+gsutil cp /var/log/daemon.log gs://$BUCKET_NAME
