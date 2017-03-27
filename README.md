@@ -14,6 +14,8 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Edit BUCKET_NAME in GCloudSetupLoadBalancedWebServer/scripts/shutdown-script.sh
 1. Run `setup-instances.sh`
 1. Open SSH shell for the instance that was created
+1. Check have latest software: `sudo apt-get update`
+1. Install git: `sudo apt-get install git`
 1. Fetch this repo: `git clone https://github.com/oclipa/GCloudSetupLoadBalancedWebServer`
 1. Edit various variables in GCloudSetupLoadBalancedWebServer/scripts/setup-image.sh
 1. Edit DATABASE_NAME in GCloudSetupLoadBalancedWebServer/scripts/webserver/app/app.py
