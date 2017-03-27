@@ -10,7 +10,7 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Fetch this repo: `git clone https://github.com/oclipa/GCloudSetupLoadBalancedWebServer`
 1. Edit various variables in GCloudSetupLoadBalancedWebServer/scripts/setup-instance.sh
 1. Edit various variables in GCloudSetupLoadBalancedWebServer/scripts/setup-load-balancing.sh
-1. Edit SQL_DOCKER_TAG in GCloudSetupLoadBalancedWebServer/scripts/startup-script.sh
+1. Edit SQL_DOCKER_TAG and APP_DOCKER_TAG in GCloudSetupLoadBalancedWebServer/scripts/startup-script.sh
 1. Edit BUCKET_NAME in GCloudSetupLoadBalancedWebServer/scripts/shutdown-script.sh
 1. Run `setup-instances.sh`
 1. Open SSH shell for the instance that was created
