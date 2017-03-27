@@ -22,27 +22,35 @@ APP_DOCKER_FOLDER="./webserver"
 SQL_DOCKER_TAG="sql-docker-tag"
 SQL_DOCKER_FOLDER="./sqladmin"
 
-
+echo UPDATING...
 sudo apt-get update
 
+echo INSTALLING MYSQL CLIENT...
 sudo apt-get install -y -qq mysql-client
 
+echo INSTALLING APACHE...
 sudo apt-get install -y apache2
 
+echo INSTALLING GOOGLE API CLIENT FOR PYTHON...
 sudo pip install --upgrade google-api-python-client
 
+echo INSTALLING DOCKER...
 ./install-docker.sh
 
+echo CREATING SQL DATABASE...
 mysql -u root -p $SQL_PASSWORD -h $SQL_IP_ADDRESS <<QUERY_INPUT
 CREATE DATABASE $DATABASE_NAME;
 CREATE TABLE $DATABASE_NAME.$TABLE_NAME ($COLUMN_PROPERTIES);
 QUERY_INPUT
 
+echo BUILDING DOCKER IMAGE FOR WEB SERVER...
 sudo docker build -t $APP_DOCKER_TAG $APP_DOCKER_FOLDER
 
-sudo docker run -p 80:80 -e CLOUDSQL_IP=$SQL_IP_ADDRESS -e CLOUDSQL_PWD=$SQL_PASSWORD $APP_DOCKER_TAG
+#sudo docker run -p 80:80 -e CLOUDSQL_IP=$SQL_IP_ADDRESS -e CLOUDSQL_PWD=$SQL_PASSWORD $APP_DOCKER_TAG
 
+echo BUILDING DOCKER IMAGE FOR SQL CLIENT...
 sudo docker build -t $SQL_DOCKER_TAG $SQL_DOCKER_FOLDER
 
+echo SHUTTING DOWN INSTANCE...
 sudo shutdown -h now
 
