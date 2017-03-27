@@ -93,7 +93,7 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Ensure Cloud SQL is not authorized for any other networks: 
    * `gcloud sql instances patch [sql instance name] --clear-authorized-networks`
 1. Create instance-template: 
-   * `gcloud compute instance-templates create [instance template name] --image [image name] --tags [firewall rule tag] --scopes=sql-admin,storage-ro,logging-write --metadata startup-script-url=[path to script in bucket],sql-name=[sql instance name],sql-ip=$SQL_IP_ADDRESS,sql-pw=[sql password]`
+   * `gcloud compute instance-templates create [instance template name] --image [image name] --tags [firewall rule tag] --scopes=sql-admin,storage-ro,logging-write --metadata startup-script-url=[path to startup script in bucket],shutdown-script-url=[path to shutdown script in bucket],sql-name=[sql instance name],sql-ip=$SQL_IP_ADDRESS,sql-pw=[sql password]`
 1. Create managed instance group based on template: 
    * `gcloud compute instance-groups managed create [instance group name 1] --base-instance-name [base-name-for-instance] --size [initial size, e.g. 1] --template [instance template name] --zone [primary zone]`
 1. [optional] Set autoscaling for instance group: 
