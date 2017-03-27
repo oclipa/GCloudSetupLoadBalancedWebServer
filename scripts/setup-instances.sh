@@ -29,7 +29,7 @@ INSTANCE_IP_ADDRESS=$(gcloud compute addresses describe $ADDRESS_NAME --region $
 
 gcloud compute firewall-rules create default-allow-http --allow tcp:80 --target-tags $FIREWALL_RULE_TAG
 
-gsutil mb -c DRA -l $PRIMARY_REGION gs://$
+gsutil mb -c DRA -l $PRIMARY_REGION gs://$BUCKET_NAME
 
 gsutil cp ./startup.sh gs://$BUCKET_NAME/
 
