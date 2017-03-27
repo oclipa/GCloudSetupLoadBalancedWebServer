@@ -19,7 +19,7 @@ TABLE_NAME="table-name"
 COLUMN_PROPERTIES="id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, entry VARCHAR(500)"
 APP_DOCKER_TAG="app-docker-tag"
 APP_DOCKER_FOLDER="./webserver"
-SQL_DOCKER_TAG="app-docker-tag"
+SQL_DOCKER_TAG="sql-docker-tag"
 SQL_DOCKER_FOLDER="./sqladmin"
 
 
