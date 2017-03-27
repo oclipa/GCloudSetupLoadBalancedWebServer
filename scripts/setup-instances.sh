@@ -16,7 +16,7 @@ PRIMARY_REGION="primary-region, e.g. europe-west1"
 PRIMARY_ZONE="primary-zone, e.g. europe-west1-c"
 FIREWALL_RULE_TAG="firewall-rule-tag"
 BUCKET_NAME="bucket-name"
-SQL_MACHINE_TYPE="sql-machine-type"
+SQL_FIRST_GEN_MACHINE_TYPE="sql-machine-type"
 SQL_INSTANCE_NAME="sql-instance-name"
 COMPUTE_ENGINE_INSTANCE_NAME="compute-engine-instance-name"
 SQL_PASSWORD="sql-password"
@@ -35,7 +35,7 @@ gsutil cp ./startup.sh gs://$BUCKET_NAME/
 
 gsutil cp ./shutdown.sh gs://$BUCKET_NAME/
 
-gcloud sql instances create $SQL_INSTANCE_NAME --assign-ip --tier $SQL_MACHINE_TYPE --region $PRIMARY_REGION --gce-zone $PRIMARY_ZONE
+gcloud sql instances create $SQL_INSTANCE_NAME --assign-ip --tier $SQL_FIRST_GEN_MACHINE_TYPE --region $PRIMARY_REGION --gce-zone $PRIMARY_ZONE
 
 gcloud sql instances set-root-password $SQL_INSTANCE_NAME  --password $SQL_PASSWORD
 
