@@ -9,7 +9,7 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Open Cloud Console
 1. Fetch this repo: `git clone https://github.com/oclipa/GCloudSetupLoadBalancedWebServer`
 1. Edit various variables in GCloudSetupLoadBalancedWebServer/scripts/setup-instance.sh
-1. Edit various variables in GCloudSetupLoadBalancedWebServer/scripts/setup-load-balancer.sh
+1. Edit various variables in GCloudSetupLoadBalancedWebServer/scripts/setup-load-balancing.sh
 1. Edit SQL_DOCKER_TAG in GCloudSetupLoadBalancedWebServer/scripts/startup-script.sh
 1. Edit BUCKET_NAME in GCloudSetupLoadBalancedWebServer/scripts/shutdown-script.sh
 1. Run `setup-instances.sh`
@@ -21,7 +21,7 @@ There instructions are derived from the Google Code Labs listed [here](https://g
 1. Edit DATABASE_NAME in GCloudSetupLoadBalancedWebServer/scripts/webserver/app/app.py
 1. Run `setup-image.sh`
 1. Open Cloud Console
-1. Run `setup-load-balancer.sh`
+1. Run `setup-load-balancing.sh`
 
 
 ## In the Cloud Console, create instances of a compute engine and an Cloud SQL database server:
