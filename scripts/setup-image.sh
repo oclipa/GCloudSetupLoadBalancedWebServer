@@ -15,7 +15,7 @@ SQL_IP_ADDRESS="get from setup-instances.sh"
 SQL_PASSWORD="get from setup-instances.sh"
 
 DATABASE_NAME="database_name" # no hypens
-TABLE_NAME="table-name"
+TABLE_NAME="table-name" # no hypens
 COLUMN_PROPERTIES="id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, entry VARCHAR(500)"
 APP_DOCKER_TAG="app-docker-tag"
 APP_DOCKER_FOLDER="./webserver"
