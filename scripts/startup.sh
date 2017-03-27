@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-SQL_DOCKER_TAG="get from setup-instances.sh"
+SQL_DOCKER_TAG="get from setup-image.sh"
 
 # retrieve the IP address of your Cloud SQL instance
 SQL_IP=$(curl \
