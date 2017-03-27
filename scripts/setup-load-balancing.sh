@@ -37,6 +37,7 @@ URL_MAP_NAME="url-map-name"
 TARGET_PROXY_NAME="target-proxy-name"
 FORWARDING_RULE_NAME="forwarding-rule-name"
 STARTUP_SCRIPT_PATH="gs://$BUCKET_NAME/startup.sh"
+SHUTDOWN_SCRIPT_PATH="gs://$BUCKET_NAME/shutdown.sh"
 
 echo DELETING COMPUTE ENGINE INSTANCE...
 gcloud compute instances delete $COMPUTE_ENGINE_INSTANCE_NAME --keep-disks boot --zone $PRIMARY_ZONE
@@ -48,7 +49,7 @@ echo CLEARING ALL AUTHORIZED NETWORKS FROM SQL INSTANCE...
 gcloud sql instances patch $SQL_INSTANCE_NAME --clear-authorized-networks
 
 echo CREATING INSTANCE TEMPLATE FROM IMAGE...
-gcloud compute instance-templates create $INSTANCE_TEMPLATE_NAME --image $IMAGE_NAME --tags $FIREWALL_RULE_TAG --scopes=sql-admin,storage-ro,logging-write --metadata startup-script-url=$STARTUP_SCRIPT_PATH,sql-name=$SQL_INSTANCE_NAME,sql-ip=$SQL_IP_ADDRESS,sql-pw=$SQL_PASSWORD
+gcloud compute instance-templates create $INSTANCE_TEMPLATE_NAME --image $IMAGE_NAME --tags $FIREWALL_RULE_TAG --scopes=sql-admin,storage-ro,logging-write --metadata startup-script-url=$STARTUP_SCRIPT_PATH,shutdown-script-url=$SHUTDOWN_SCRIPT_PATH,sql-name=$SQL_INSTANCE_NAME,sql-ip=$SQL_IP_ADDRESS,sql-pw=$SQL_PASSWORD
 
 echo CREATING PRIMARY INSTANCE GROUP FROM INSTANCE TEMPLATE...
 gcloud compute instance-groups managed create $PRIMARY_INSTANCE_GROUP_NAME --base-instance-name $BASE_NAME --size 1 --template $INSTANCE_TEMPLATE_NAME --zone $PRIMARY_ZONE
