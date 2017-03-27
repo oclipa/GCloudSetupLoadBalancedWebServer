@@ -16,6 +16,7 @@
 #
 
 SQL_DOCKER_TAG="get from setup-image.sh"
+APP_DOCKER_TAG="get from setup-image.sh"
 
 # retrieve the IP address of your Cloud SQL instance
 SQL_IP=$(curl \
@@ -41,4 +42,4 @@ docker run \
 -e CLOUDSQL_IP=$SQL_IP \
 -e CLOUDSQL_PWD=$SQL_PW \
 -e HOST_ZONE=$MY_ZONE \
--p 80:80 $SQL_DOCKER_TAG
+-p 80:80 $APP_DOCKER_TAG
